@@ -18,10 +18,10 @@ public class JedisDemo {
     public void basicUse() {
         Jedis jedis = new Jedis("127.0.0.1", 6379);
         System.out.println("服务正在运行: " + jedis.ping());
-        //jedis.set("name", "lizai");
+        jedis.set("name", "lizai");
         jedis.setex("namewithttl", 20,"lizai");
         String val = jedis.get("name");
-        System.out.println(val);
+       // System.out.println(val);
         jedis.close();
     }
 
@@ -38,7 +38,9 @@ public class JedisDemo {
         Jedis jedis = jedisPool.getResource();
         jedis.set("date", "5/18");
         String val = jedis.get("name");
+        String val2 = jedis.get("date");
         System.out.println(val);
+        System.out.println(val2);
         jedis.close();
         jedisPool.close();
     }
@@ -57,7 +59,7 @@ public class JedisDemo {
         // 获取存储的数据并输出
         List<String> list = jedis.lrange("site-list", 0, 2);
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+           // System.out.println(list.get(i));
         }
     }
 
@@ -73,7 +75,7 @@ public class JedisDemo {
         Iterator<String> it=keys.iterator() ;
         while(it.hasNext()){
             String key = it.next();
-            System.out.println(key);
+           // System.out.println(key);
         }
     }
 

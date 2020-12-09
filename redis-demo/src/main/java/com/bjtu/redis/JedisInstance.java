@@ -30,5 +30,7 @@ public class JedisInstance {
     public static JedisPool getInstance(){
         return SingletonEnum.INSTANCE.getInstnce();
     }
+
+
 }
 
